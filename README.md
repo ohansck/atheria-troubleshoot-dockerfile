@@ -56,6 +56,8 @@ In this repository, you will find a project with a Dockerfile deliberately conta
 
 Join our vibrant cloud community. [Join NexaScale](https://nexascale.org) to connect with other participants, share your experiences, and learn from one another. Collaboration and knowledge sharing are key aspects of our community!
 
+#### Please remember to give the repo a star
+
 Best Regards,
 
 Kingsley Ohaneme,
