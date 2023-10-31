@@ -6,7 +6,7 @@ Welcome to the NexaScale Troubleshooting Tuesday Docker Challenge! This challeng
 
 In this repository, you will find a project with a Dockerfile deliberately containing errors. Your task is to identify these errors, fix them, and successfully build the Docker image. Your corrected Dockerfile should run without any issues and produce the desired output.
 
-#### Note: These errors are independent of the programming language the program was written with.
+#### Note: These errors are independent of the applications programming language
 
 ## Getting Started
 
