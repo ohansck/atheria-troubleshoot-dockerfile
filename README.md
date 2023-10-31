@@ -31,7 +31,7 @@ In this repository, you will find a project with a Dockerfile deliberately conta
 
 6. **Successful**: If successful, visit the root of your endpoint, for example <code>http://localhost:8000/</code>. You should receive the following message.
    ```json
-   { message: "Challenge complete", status: "ok" }
+   { "message": "Challenge complete", "status": "ok" }
    ```
 
 7. **Play With Docker**: If you do not have docker installed locally, you can visit [Play With Docker](https://labs.play-with-docker.com/) to use their free docker labs. To test your correction, run the following commands in the virtual instance. 
