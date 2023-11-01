@@ -24,6 +24,7 @@ FROM ${NODE_VERSION} AS deploy
 # Set the working directory
 WORKDIR /app
 
+ARG ENV
 ENV NODE_ENV=${ENV}
 
 COPY package*.json ./
