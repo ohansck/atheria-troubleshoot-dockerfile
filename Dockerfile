@@ -7,7 +7,7 @@ FROM ${NODE_VERSION} AS builder
 
 
 # Set the working directory
-WORKDIR /app/dist
+WORKDIR /app
 
 # Copy All
 COPY . .
@@ -33,7 +33,7 @@ COPY package*.json ./
 RUN npm ci
 
 # Copy only the build artifacts from the previous stage
-COPY --from=builder /app/dist /app/dist
+COPY --from=builder /app/dist ./dist
 # WORKDIR /app
 
 
