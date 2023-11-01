@@ -7,7 +7,7 @@ FROM ${NODE_VERSION} AS builder
 
 
 # Set the working directory
-WORKDIR /app
+WORKDIR /app/dist
 
 # Copy All
 COPY . ./
