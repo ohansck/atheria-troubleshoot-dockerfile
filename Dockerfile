@@ -24,7 +24,7 @@ FROM ${NODE_VERSION} AS deploy
 # Set the working directory
 WORKDIR /app
 
-ENV NODE_ENV=${ENVIRONMENT}
+ENV NODE_ENV=${ENV}
 
 COPY package*.json ./
 
@@ -32,7 +32,7 @@ COPY package*.json ./
 RUN npm ci
 
 # Copy only the build artifacts from the previous stage
-COPY --from=bullder /app/dist ./dist
+COPY --from=builder /app/dist ./dist
 
 RUN ls
 # Expose the port your application listens on (if needed)
