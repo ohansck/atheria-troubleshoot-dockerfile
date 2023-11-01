@@ -10,11 +10,11 @@ FROM ${NODE_VERSION} AS builder
 WORKDIR /app/dist
 
 # Copy All
-COPY . ./
+COPY . .
 
 # Install project dependencies and build the project
-RUN npm ci \
-    npm run build \
+RUN npm ci && \
+    npm run build && \
     ls
 
 ARG NODE_VERSION
@@ -33,7 +33,9 @@ COPY package*.json ./
 RUN npm ci
 
 # Copy only the build artifacts from the previous stage
-COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/dist /app/dist
+# WORKDIR /app
+
 
 RUN ls
 # Expose the port your application listens on (if needed)
