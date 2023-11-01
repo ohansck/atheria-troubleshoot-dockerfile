@@ -3,26 +3,31 @@ ARG NODE_VERSION=node:current-alpine3.17
 ARG ENV=production
 
 # Stage 1: Build the project
-FROM NODE_VERSION AS builder
+#Put the variable in ${}
+FROM ${NODE_VERSION} AS builder
 
 # Set the working directory
 WORKDIR /app
 
 # Copy All
-COPY . 
+# Copy all from the current directory to the working directory in the image
+COPY . .
 
 # Install project dependencies and build the project
-RUN npm ci \
-    npm run build \
+#Added &&
+RUN npm ci && \
+    npm run build &&  \
     ls
 
 # Stage 2: Create a minimal production image
-FROM NODE_VERSION AS deploy
+#Put the variable in ${}
+FROM ${NODE_VERSION} AS deploy
 
 # Set the working directory
 WORKDIR /app
 
-ENV NODE_ENV=${ENVIRONMENT}
+#Changed ENVIRONMENT to ENV to reference the ENV variable
+ENV NODE_ENV=${ENV}
 
 COPY package*.json ./
 
@@ -30,7 +35,8 @@ COPY package*.json ./
 RUN npm ci
 
 # Copy only the build artifacts from the previous stage
-COPY --from=bullder /app/dist ./dist
+#Corrected the stage name 'builder'
+COPY --from=builder /app/dist ./dist
 
 RUN ls
 # Expose the port your application listens on (if needed)
