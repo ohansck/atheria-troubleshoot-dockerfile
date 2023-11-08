@@ -34,7 +34,7 @@ RUN npm ci
 
 # Copy only the build artifacts from the previous stage
 COPY --from=builder /app/dist ./dist
-# WORKDIR /app
+
 
 
 RUN ls
